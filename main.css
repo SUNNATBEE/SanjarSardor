@@ -1,0 +1,196 @@
+ body {
+      font-family: 'Iceland', sans-serif;
+    }
+    :root {
+      --primary: #E84A4A;
+    }
+    .header__one{
+        display: flex;
+        align-items: center;
+    }
+    .hero__level{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .header__list{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        
+    }
+    .hero__level h2{
+        font-family: "Big Shoulders Display";
+font-weight: 743;
+font-size: 26px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: #7DFF68;
+    }
+    .hero__level span{
+        font-family: "Big Shoulders Display";
+font-weight: 743;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: white;
+    }
+    .header__plus{
+        width: 33px;
+height: 33px;
+margin-left: 46px;
+margin-right: 13px;
+border-width: 1px;
+color: tomato;
+font-size: 33px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-bottom: 5px;
+border: #FFFFFF4A solid;
+transition: all 0.3s ease;
+    }
+    .header__plus:hover{
+        background-color: var(--primary);
+        color: white;
+    }
+    .header__two{
+        display: flex;
+        align-items: center;
+        gap: 27px;
+    }
+    .header__two h3{
+        font-family: "Iceberg";
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: white;
+    }
+    .left__white__text{
+        font-family: "Iceland";
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: white;
+    }
+    .left__red__title{
+        font-family:"Big Shoulders Display";
+font-weight: 743;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: var(--primary);
+    }
+    .open__for__hire{
+        font-family: "Big Shoulders Display";
+font-weight: 743;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+width: 194px;
+height: 23px;
+opacity: 1;
+background-image: url("./images/Subtract.png");
+background-repeat: no-repeat;
+background-size: cover;  }
+.open__connection{
+    width: 194px;
+height: 33px;
+
+border-width: 1px;
+border: var(--primary) solid;
+font-family: "Big Shoulders Display";
+color: var(--primary);
+text-align: center;
+font-weight: 743;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+
+}
+.motto{
+    font-family: "Iceland";
+font-weight: 400;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: var(--primary);
+}
+.motto__text{
+    font-family: "Iceland";
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: white;
+}
+.general{
+    background-image: url("./images/general.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: #FFFFFF21;
+}
+.overlay{
+    max-width: 583px;
+height: 309px;
+width: 100%;
+position: absolute;
+top: 0;
+right: 0px;
+background: linear-gradient(230.06deg, rgba(232, 74, 74, 0.33) 0%, rgba(232, 74, 74, 0) 34.83%);
+z-index: -1;
+}
+.general__text{
+    font-family: "Iceland";
+font-weight: 400;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: white;
+max-width: 623px;
+width: 100%;
+margin: 0 auto;
+padding-top: 40px;
+text-align: center;
+}
+.general__mintitle{
+    font-family: "Iceland";
+font-weight: 400;
+color: gray;
+font-size: 14px;
+max-width: 623px;
+width: 100%;
+margin: 0 auto;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-align: center;
+text-transform: uppercase;
+
+}
+.nav__a{
+    font-family: "Iceland";
+font-weight: 400;
+font-size: 7px;
+line-height: 100%;
+letter-spacing: 7.5%;
+text-transform: uppercase;
+color: gray;
+max-width: 102px;
+width: 100%;
+padding-left: 8px;
+padding-bottom: 8px;
+}
