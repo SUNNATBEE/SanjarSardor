@@ -1,165 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome site</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bluetooth" />
-  <!-- Google Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Big+Shoulders+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bluetooth" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceland&family=Big+Shoulders+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="bg-black">
-<div class="overlay"></div>
-  <div id="welcomeMessage" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-  <div class="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 max-w-[1200px] w-full p-4 sm:p-6 md:p-8 
+    <div class="overlay"></div>
+    <div id="welcomeMessage" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 max-w-[1200px] w-full p-4 sm:p-6 md:p-8 
     text-center lg:text-left">
 
-    <!-- HI animatsiya bilan -->
-    <span id="hiText" class="opacity-0 scale-50 transition-all duration-1000 font-['Big_Shoulders_Display'] text-[var(--primary)] font-[743]
+            <!-- HI animatsiya bilan -->
+            <span id="hiText" class="opacity-0 scale-50 transition-all duration-1000 font-['Big_Shoulders_Display'] text-[var(--primary)] font-[743]
       text-[80px] sm:text-[150px] md:text-[250px] lg:text-[350px] xl:text-[450px]
       leading-[100%] tracking-[-6%] uppercase">
-      HI!
-    </span>
+                HI!
+            </span>
 
-    <div class="flex flex-col gap-6 text-white max-w-[734px] w-full 
+            <div class="flex flex-col gap-6 text-white max-w-[734px] w-full 
       items-center justify-center lg:items-start lg:justify-start">
 
-      <!-- Typing texts -->
-      <h1 id="type1" class="w-full max-w-[734px] font-[400] text-[20px] sm:text-[24px] md:text-[26px] leading-[100%] whitespace-pre"></h1>
-      <p id="type2" class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]"></p>
-      <p id="type3" class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%] "></p>
+                <!-- Typing texts -->
+                <h1 id="type1"
+                    class="w-full max-w-[734px] font-[400] text-[20px] sm:text-[24px] md:text-[26px] leading-[100%] ">
+                </h1>
+                <p id="type2"
+                    class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]">
+                </p>
+                <p id="type3"
+                    class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%] ">
+                </p>
 
-      <button id="button" onclick="closeWelcome()" 
-        class="mt-6 w-[200px] opacity-0 scale-50 transition-all duration-1000 sm:w-[220px] md:w-[266px] h-[50px] md:h-[55px] 
+                <button id="button" onclick="closeWelcome()" class="mt-6 w-[200px] opacity-0 scale-50 transition-all duration-1000 sm:w-[220px] md:w-[266px] h-[50px] md:h-[55px] 
         flex items-center justify-center 
         border border-[var(--primary)] text-[var(--primary)] 
         font-['Big_Shoulders_Display'] font-[743] text-[18px] sm:text-[20px] md:text-[22px]
         hover:bg-[var(--primary)] hover:text-black transition-all duration-300">
-        ENTER THE SYSTEM
-      </button>
-    </div>
-  </div>
-</div>
-
-
-<!-- shotga main ketishi kere -->
-  <div id="mainContent" class="hidden">
-    <header>
-        <div class="container max-w-[1920px] px-[70px] mx-auto">
-            <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 header__list">
-                <li class="flex items-center gap-1 header__one">
-                    <div class="hero__level">
-                        <h2 class="">48</h2>
-                    <span>LEVEL</span>
-                    </div>
-                    <button class="header__plus">+</button>
-                    <div class="hero__level">
-                        <h2 class="">1,425</h2>
-                    <span>COINS AWARDED</span>
-                    </div>
-                </li>
-                <li class="header__two">
-                    <h3 class="hover:text-[#7DFF68]">CREDITS</h3>
-                    <h3 class="hover:text-[#7DFF68] group"><span class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">server time: </span> 8:42</h3>
-                    <h3 class="hover:text-[#7DFF68] group"><span class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">local time: </span>15:42</h3>
-                </li>
-
-            </ul>
-        </div>
-    </header>
-    <main>
-  <div class="container max-w-[1920px] mx-auto px-4 lg:px-[70px] pb-[92px]">
-    <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
-      <div class="w-full lg:w-[20%]  h-[896px] flex flex-col justify-between gap-4">
-        <div class="flex flex-col gap-[22px] ">
-            <div class="relative inline-block border-[1px] border-gray-500 p-4 w-[194px]">
-  <img src="./images/opa.svg" alt="Your Image" class="block ">
-
-  <!-- top-left corner -->
-  <div class="absolute top-[-3px] left-[-3px] w-3 h-3 border-t-4 border-l-4 border-red-500"></div>
-
-  <!-- top-right corner -->
-  <div class="absolute top-[-3px] right-[-3px] w-3 h-3 border-t-4 border-r-4 border-red-500"></div>
-
-  <!-- bottom-left corner -->
-  <div class="absolute bottom-[-3px] left-[-3px] w-3 h-3 border-b-4 border-l-4 border-red-500"></div>
-
-  <!-- bottom-right corner -->
-  <div class="absolute bottom-[-3px] right-[-3px] w-3 h-3 border-b-4 border-r-4 border-red-500"></div>
-</div>
-<div class="flex flex-col  justify-center gap-1">
-    <p class="left__white__text">NAME</p>
-    <h2 class="left__red__title">Luz Wintheiser</h2>
-</div>
-<div class="flex flex-col  justify-center gap-1">
-    <p class="left__white__text">occupation</p>
-    <h2 class="left__red__title">web developer</h2>
-</div>
-<div class="flex flex-col  justify-center gap-1">
-    <p class="left__white__text">corporation</p>
-    <h2 class="left__red__title">Legacy.ai</h2>
-</div>
-<div class="flex flex-col  justify-center gap-1">
-    <p class="left__white__text">availability</p>
-    <button class="open__for__hire">open for hire</button>
-</div>
-<div class="flex flex-col  justify-center gap-1">
-    <p class="left__white__text">social</p>
-    <button class="open__connection flex justify-center gap-[30px] items-center">open connection <span class="material-symbols-outlined">
-bluetooth
-</span>
-</button>
-</div>
-</div>
-<div class="max-w-[194px] w-full flex flex-col  ">
-    <span class="motto">motto:</span>
-    <p class="motto__text">Saepe omnis neque numquam recusandae laudantium.</p>
-</div>
-        
-      </div>
-      <div class="w-full lg:w-[60%] general flex-col flex items-center justify-between">
-        <div class="flex flex-col gap-2">
-            <p class="general__text">
-            swimming through a vast network of interconnected devices and servers, spreading joy and whimsy to users across the globe
-        </p>
-        <span class="general__mintitle">Artwork generated with midjourney</span>
-        </div>
-        <div>
-            <div class="container max-w-[815px] w-full">
-
-
-                
-                <div class="flex">
-                    <a class="border-l-4 border-[var(--primary)] h-[60px] flex flex-col justify-between">
-                        <div class="flex flex-col  justify-center gap-1 ">
-    <button class="open__for__hire">BEGINNING</button>
-</div>
-<p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-</a>
-</div>
-
-
-
+                    ENTER THE SYSTEM
+                </button>
             </div>
         </div>
-      </div>
-      <div class="w-full lg:w-[20%] bg-gray-800 h-[896px]">
-        
-      </div>
     </div>
-  </div>
-</main>
 
-  </div>
 
-  
-  
-  <script src="./type.js"></script>
-  <script src="./main.js"></script>
+    <!-- shotga main ketishi kere -->
+    <div id="mainContent" class="hidden">
+        <header>
+            <div class="container max-w-[1920px] px-[70px] mx-auto">
+                <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 header__list">
+                    <li class="flex items-center gap-1 header__one">
+                        <div class="hero__level">
+                            <h2 class="">48</h2>
+                            <span>LEVEL</span>
+                        </div>
+                        <button class="header__plus">+</button>
+                        <div class="hero__level">
+                            <h2 class="">1,425</h2>
+                            <span>COINS AWARDED</span>
+                        </div>
+                    </li>
+                    <li class="header__two">
+                        <h3 class="hover:text-[#7DFF68]">CREDITS</h3>
+                        <h3 class="hover:text-[#7DFF68] group"><span
+                                class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">server time:
+                            </span> 8:42</h3>
+                        <h3 class="hover:text-[#7DFF68] group"><span
+                                class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">local time:
+                            </span>15:42</h3>
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div class="container max-w-[1920px] mx-auto px-4 lg:px-[70px] pb-[92px]">
+                <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
+                    <div class="w-full lg:w-[20%]  h-[896px] flex flex-col justify-between gap-4">
+                        <div class="flex flex-col gap-[22px] ">
+                            <div class="relative inline-block border-[1px] border-gray-500 p-4 w-[194px]">
+                                <img src="./images/opa.svg" alt="Your Image" class="block ">
+
+                                <!-- top-left corner -->
+                                <div
+                                    class="absolute top-[-3px] left-[-3px] w-3 h-3 border-t-4 border-l-4 border-red-500">
+                                </div>
+
+                                <!-- top-right corner -->
+                                <div
+                                    class="absolute top-[-3px] right-[-3px] w-3 h-3 border-t-4 border-r-4 border-red-500">
+                                </div>
+
+                                <!-- bottom-left corner -->
+                                <div
+                                    class="absolute bottom-[-3px] left-[-3px] w-3 h-3 border-b-4 border-l-4 border-red-500">
+                                </div>
+
+                                <!-- bottom-right corner -->
+                                <div
+                                    class="absolute bottom-[-3px] right-[-3px] w-3 h-3 border-b-4 border-r-4 border-red-500">
+                                </div>
+                            </div>
+                            <div class="flex flex-col  justify-center gap-1">
+                                <p class="left__white__text">NAME</p>
+                                <h2 class="left__red__title">Luz Wintheiser</h2>
+                            </div>
+                            <div class="flex flex-col  justify-center gap-1">
+                                <p class="left__white__text">occupation</p>
+                                <h2 class="left__red__title">web developer</h2>
+                            </div>
+                            <div class="flex flex-col  justify-center gap-1">
+                                <p class="left__white__text">corporation</p>
+                                <h2 class="left__red__title">Legacy.ai</h2>
+                            </div>
+                            <div class="flex flex-col  justify-center gap-1">
+                                <p class="left__white__text">availability</p>
+                                <button class="open__for__hire">open for hire</button>
+                            </div>
+                            <div class="flex flex-col  justify-center gap-1">
+                                <p class="left__white__text">social</p>
+                                <button class="open__connection flex justify-center gap-[30px] items-center">open
+                                    connection <span class="material-symbols-outlined">
+                                        bluetooth
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="max-w-[194px] w-full flex flex-col  ">
+                            <span class="motto">motto:</span>
+                            <p class="motto__text">Saepe omnis neque numquam recusandae laudantium.</p>
+                        </div>
+
+                    </div>
+                    <div class="w-full lg:w-[60%] general flex-col flex items-center justify-between">
+                        <div class="flex flex-col gap-2">
+                            <p class="general__text">
+                                swimming through a vast network of interconnected devices and servers, spreading joy and
+                                whimsy to users across the globe
+                            </p>
+                            <span class="general__mintitle">Artwork generated with midjourney</span>
+                        </div>
+                        <div>
+                            <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+  <div class="flex flex-wrap justify-between gap-6">
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+      <button class="open__for__hire">BEGINNING</button>
+      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+    </a>
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+      <button class="open__for__hire">LOGS</button>
+      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+    </a>
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+      <button class="open__for__hire">achievements</button>
+      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+    </a>
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+      <button class="open__for__hire">creations</button>
+      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+    </a>
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+      <button class="open__for__hire">games</button>
+      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+    </a>
+  </div>
+</div>
+
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-[20%] bg-gray-800 h-[896px]">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+
+    <script src="./type.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
