@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome site</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Big+Shoulders+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Iceland', sans-serif;
+    }
+    :root {
+      --primary: #E84A4A;
+    }
+  </style>
 </head>
-<body>
-<span>NICE TO MEET YOU</span>
+<body class="flex items-center justify-center h-screen bg-gray-900 text-white">
 
-    <h1>Sardor</h1>
+  <div id="welcomeMessage" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 max-w-[1200px] w-full p-4 sm:p-6 md:p-8 
+    text-center lg:text-left">
 
-    <p>Bzani new projectimiz</p>
+    <!-- HI animatsiya bilan -->
+    <span id="hiText" class="opacity-0 scale-50 transition-all duration-1000 font-['Big_Shoulders_Display'] text-[var(--primary)] font-[743]
+      text-[80px] sm:text-[150px] md:text-[250px] lg:text-[350px] xl:text-[450px]
+      leading-[100%] tracking-[-6%] uppercase">
+      HI!
+    </span>
 
-    <p>Shu project qoshilyapti</p>
-    <strong>Salom</strong>
+    <div class="flex flex-col gap-6 text-white max-w-[734px] w-full 
+      items-center justify-center lg:items-start lg:justify-start">
 
-    
+      <!-- Typing texts -->
+      <h1 id="type1" class="w-full max-w-[734px] font-[400] text-[20px] sm:text-[24px] md:text-[26px] leading-[100%] whitespace-pre"></h1>
+      <p id="type2" class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]"></p>
+      <p id="type3" class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%] "></p>
+
+      <button id="button" onclick="closeWelcome()" 
+        class="mt-6 w-[200px] opacity-0 scale-50 transition-all duration-1000 sm:w-[220px] md:w-[266px] h-[50px] md:h-[55px] 
+        flex items-center justify-center 
+        border border-[var(--primary)] text-[var(--primary)] 
+        font-['Big_Shoulders_Display'] font-[743] text-[18px] sm:text-[20px] md:text-[22px]
+        hover:bg-[var(--primary)] hover:text-black transition-all duration-300">
+        ENTER THE SYSTEM
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- shotga main ketishi kere -->
+  <div id="mainContent" class="hidden">
+    <h1 class="text-5xl font-bold">
+       <div class="relative inline-block border-[1px] border-gray-500 p-4">
+  <img src="./Rectangle 6.svg" alt="Your Image" class="block">
+
+  <!-- top-left corner -->
+  <div class="absolute top-[-3px] left-[-3px] w-3 h-3 border-t-4 border-l-4 border-red-500"></div>
+
+  <!-- top-right corner -->
+  <div class="absolute top-[-3px] right-[-3px] w-3 h-3 border-t-4 border-r-4 border-red-500"></div>
+
+  <!-- bottom-left corner -->
+  <div class="absolute bottom-[-3px] left-[-3px] w-3 h-3 border-b-4 border-l-4 border-red-500"></div>
+
+  <!-- bottom-right corner -->
+  <div class="absolute bottom-[-3px] right-[-3px] w-3 h-3 border-b-4 border-r-4 border-red-500"></div>
+</div>
+
+    </h1>
+  </div>
+
+  <script>
+    // Like useEffect on mount
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('welcomeMessage').classList.remove('hidden');
+    });
+
+    function closeWelcome() {
+      document.getElementById('welcomeMessage').classList.add('hidden');
+      document.getElementById('mainContent').classList.remove('hidden');
+    }
+  </script>
+  <script src="./type.js"></script>
 </body>
 </html>
