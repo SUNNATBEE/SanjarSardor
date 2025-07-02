@@ -28,16 +28,18 @@
 
     <!-- shotga main ketishi kere -->
     <div id="mainContent" class="">
+
         <header class="relative z-10">
                 <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 pt-[27px] px-[76px]">
                     <li class="flex items-center gap-1 header__one">
+                          <!-- LEVEL -->
                         <div class="hero__level">
-                            <h2 class="">48</h2>
+                            <h2 id="level" data-target="48">0</h2>
                             <span>LEVEL</span>
                         </div>
                         <button class="header__plus">+</button>
                         <div class="hero__level">
-                            <h2 class="">1,425</h2>
+                            <h2 id="coins" data-target="1425">0</h2>
                             <span>COINS AWARDED</span>
                         </div>
                     </li>
@@ -52,10 +54,10 @@
                     </li>
 
                 </ul>
-            </div>
         </header>
+
         <main>
-                <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
+                <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8 mb-[96px]">
 
                     <!-- Right Slidebar -->
                     <div class="w-full lg:w-[278px]  h-[896px] flex flex-col justify-between gap-4 pl-[76px]">
@@ -116,39 +118,34 @@
                     </div>
 
                     <!-- Main Content -->
-                    <div class="w-full lg:w-[100%] general flex-col flex items-center justify-between">
-                        <div class="flex flex-col gap-2">
-                            <p class="general__text">
-                                swimming through a vast network of interconnected devices and servers, spreading joy and
-                                whimsy to users across the globe
-                            </p>
-                            <span class="general__mintitle">Artwork generated with midjourney</span>
-                        </div>
+                    <div class="w-full lg:w-[100%] bg-[url('./images/ach_main_bg.png')] bg-cover bg-center general flex-col flex items-center justify-between">
+                       <p class="">achievements</p>
+
                         <div>
                             <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-  <div class="flex flex-wrap justify-between gap-6">
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">BEGINNING</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">LOGS</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">achievements</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">creations</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">games</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-  </div>
-</div>
+                                <div class="flex flex-wrap justify-between gap-6">
+                                    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+                                    <button class="open__for__hire">BEGINNING</button>
+                                    <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                    </a>
+                                    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+                                    <button class="open__for__hire">LOGS</button>
+                                    <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                    </a>
+                                    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+                                    <button class="open__for__hire">achievements</button>
+                                    <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                    </a>
+                                    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+                                    <button class="open__for__hire">creations</button>
+                                    <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                    </a>
+                                    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+                                    <button class="open__for__hire">games</button>
+                                    <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -225,9 +222,11 @@
 
                     </div>
                 </div>
-            </div>
         </main>
 
+        <footer>
+            
+        </footer>
     </div>
 
 

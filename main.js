@@ -51,3 +51,25 @@ document.querySelectorAll('button, .btn, .open__for__hire').forEach(el => {
       wrapper.classList.add("text-[#883939]");
     }
   }
+
+
+    function animateCountUp(el, duration = 1000) {
+    const target = +el.getAttribute('data-target').replace(/,/g, '');
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * target);
+      el.textContent = value.toLocaleString();
+
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animateCountUp(document.getElementById('level'), 2000);
+    animateCountUp(document.getElementById('coins'), 2000);
+  });
