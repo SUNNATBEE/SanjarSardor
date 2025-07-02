@@ -20,6 +20,11 @@
         padding: 20px 0;
         
     }
+
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+
     .hero__level h2{
         font-family: "Big Shoulders Display";
 font-weight: 743;
@@ -141,7 +146,6 @@ color: white;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border: #FFFFFF21;
 }
 .overlay{
     max-width: 583px;
