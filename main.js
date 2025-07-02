@@ -24,3 +24,30 @@ document.querySelectorAll('button, .btn, .open__for__hire').forEach(el => {
   });
 });
 
+  const state = {
+    sfx: true,
+    music: false,
+  };
+
+  function toggleSetting(type) {
+    state[type] = !state[type];
+
+    const btn = document.getElementById(`toggle-${type}`);
+    const wrapper = document.getElementById(`${type}-wrapper`);
+    const activeColor = "#ff4c4c";
+    const inactiveColor = "#883939";
+
+    if (state[type]) {
+      btn.textContent = "✔";
+      btn.classList.remove("border-[#883939]");
+      btn.classList.add("border-[#ff4c4c]");
+      wrapper.classList.remove("text-[#883939]");
+      wrapper.classList.add("text-[#ff4c4c]");
+    } else {
+      btn.textContent = "✖";
+      btn.classList.remove("border-[#ff4c4c]");
+      btn.classList.add("border-[#883939]");
+      wrapper.classList.remove("text-[#ff4c4c]");
+      wrapper.classList.add("text-[#883939]");
+    }
+  }
