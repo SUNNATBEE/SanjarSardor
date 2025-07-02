@@ -16,52 +16,20 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Iceland&family=Big+Shoulders+Display:wght@400;700;900&display=swap"
         rel="stylesheet">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet"> -->
 </head>
 
 <body class="bg-black">
-    <div class="overlay"></div>
-    <div id="welcomeMessage" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-        <div class="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 max-w-[1200px] w-full p-4 sm:p-6 md:p-8 
-    text-center lg:text-left">
 
-            <!-- HI animatsiya bilan -->
-            <span id="hiText" class="opacity-0 scale-50 transition-all duration-1000 font-['Big_Shoulders_Display'] text-[var(--primary)] font-[743]
-      text-[80px] sm:text-[150px] md:text-[250px] lg:text-[350px] xl:text-[450px]
-      leading-[100%] tracking-[-6%] uppercase">
-                HI!
-            </span>
-
-            <div class="flex flex-col gap-6 text-white max-w-[734px] w-full 
-      items-center justify-center lg:items-start lg:justify-start">
-
-                <!-- Typing texts -->
-                <h1 id="type1"
-                    class="w-full max-w-[734px] font-[400] text-[20px] sm:text-[24px] md:text-[26px] leading-[100%] ">
-                </h1>
-                <p id="type2"
-                    class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]">
-                </p>
-                <p id="type3"
-                    class="w-full max-w-[734px] font-[400] text-[16px] sm:text-[18px] md:text-[20px] leading-[100%] ">
-                </p>
-
-                <button id="button" onclick="closeWelcome()" class="mt-6 w-[200px] opacity-0 scale-50 transition-all duration-1000 sm:w-[220px] md:w-[266px] h-[50px] md:h-[55px] 
-        flex items-center justify-center 
-        border border-[var(--primary)] text-[var(--primary)] 
-        font-['Big_Shoulders_Display'] font-[743] text-[18px] sm:text-[20px] md:text-[22px]
-        hover:bg-[var(--primary)] hover:text-black transition-all duration-300">
-                    ENTER THE SYSTEM
-                </button>
-            </div>
-        </div>
-    </div>
-
+    <img src="./images/ach_after.png" alt="" class="absolute right-0 top-0">
 
     <!-- shotga main ketishi kere -->
-    <div id="mainContent" class="hidden">
-        <header>
-            <div class="container max-w-[1920px] px-[70px] mx-auto">
-                <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 header__list">
+    <div id="mainContent" class="">
+        <header class="relative z-10">
+                <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 pt-[27px] px-[76px]">
                     <li class="flex items-center gap-1 header__one">
                         <div class="hero__level">
                             <h2 class="">48</h2>
@@ -87,9 +55,10 @@
             </div>
         </header>
         <main>
-            <div class="container max-w-[1920px] mx-auto px-4 lg:px-[70px] pb-[92px]">
                 <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
-                    <div class="w-full lg:w-[20%]  h-[896px] flex flex-col justify-between gap-4">
+
+                    <!-- Right Slidebar -->
+                    <div class="w-full lg:w-[278px]  h-[896px] flex flex-col justify-between gap-4 pl-[76px]">
                         <div class="flex flex-col gap-[22px] ">
                             <div class="relative inline-block border-[1px] border-gray-500 p-4 w-[194px]">
                                 <img src="./images/opa.svg" alt="Your Image" class="block ">
@@ -145,7 +114,9 @@
                         </div>
 
                     </div>
-                    <div class="w-full lg:w-[60%] general flex-col flex items-center justify-between">
+
+                    <!-- Main Content -->
+                    <div class="w-full lg:w-[100%] general flex-col flex items-center justify-between">
                         <div class="flex flex-col gap-2">
                             <p class="general__text">
                                 swimming through a vast network of interconnected devices and servers, spreading joy and
@@ -164,7 +135,7 @@
       <button class="open__for__hire">LOGS</button>
       <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
     </a>
-    <a href="./achievements.html" class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
+    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
       <button class="open__for__hire">achievements</button>
       <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
     </a>
@@ -181,7 +152,76 @@
 
                         </div>
                     </div>
-                    <div class="w-full lg:w-[20%] bg-gray-800 h-[896px]">
+
+                    <!-- Left Slidebar -->
+                    <div class="w-full lg:w-[278px]  h-[896px]  flex flex-col justify-between gap-4 pr-[76px] relative z-10">
+                        
+                        <div class="border-l-[2px] border-[#E84A4A]  relative">
+                            <button class="open__for__hire text-left pl-[10px] pt-[2px] text-white">active quest</button>
+                            
+                            <div class="text-[#7A7A7A] relative pt-2 pl-[10px] pr-[41px] mt-[-3px] mb-[15px]">
+                                <p class="text-[14px] uppercase">the react skill-up line</p>
+                                <span class="bg-[#E84A4A] h-[30px] absolute left-0 top-0 opacity-[0.1]  pl-[10px] pr-[55px] ">the react skill-up line</span>
+                            </div>
+
+                            <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
+                                <p class="text-[14px] text-white">quest name</p>
+                                <p class="text-[#E84A4A] font-extrabold text-[18px]">React website</p>
+                            </div>
+
+                            <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
+                                <p class="text-[14px] text-white">goal</p>
+                                <p class="text-[13.5px] text-[#7A7A7A]">Build this website. Implement a full react website with multiple routers, UI elements and tricky styling. Make it all work great!</p>
+                            </div>
+
+                            <div class="flex flex-col gap-2 pl-[10px] uppercase">
+                                <p class="text-[14px] text-white">rewards</p>
+
+                                <div class="flex gap-2">
+                                    <div class="flex flex-col items-center">
+                                        <img src="./images/beshplus.svg" alt="">
+                                        <span class="text-[#7A7A7A]">+5</span>
+                                    </div>
+
+                                    <div class="flex flex-col items-center">
+                                        <img src="./images/20besh.svg" alt="">
+                                        <span class="text-[#7A7A7A]">+25</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        
+                        </div>
+
+
+                        <div class="flex flex-col gap-4 text-sm font-bold uppercase">
+
+                            <!-- Sound Effects -->
+                            <div id="sfx-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#ff4c4c]">
+                                <span>Sound Effects</span>
+                                <button id="toggle-sfx" onclick="toggleSetting('sfx')" class="w-6 h-6 flex items-center justify-center border border-[#ff4c4c]">
+                                ✔
+                                </button>
+                            </div>
+
+                            <!-- Music -->
+                            <div id="music-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#883939]">
+                                <span>Music</span>
+                                <button id="toggle-music" onclick="toggleSetting('music')" class="w-6 h-6 flex items-center justify-center border border-[#883939]">
+                                ✖
+                                </button>
+                            </div>
+
+                            <!-- Visual Settings -->
+                            <div class="flex items-center text-[18px] font-extrabold uppercase justify-between text-[#ff4c4c] border border-[#262626] pt-[4px] px-[7px] pb-[4px]">
+                                <span>Visual Settings</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                <img src="./images/settings.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+
 
                     </div>
                 </div>
