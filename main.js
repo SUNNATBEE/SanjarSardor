@@ -159,3 +159,99 @@ let seconds = parseInt(localStorage.getItem('serverTime')) || 0;
 
 
   
+=======
+
+  // navigation panel coilishi
+function openPanel() {
+    const panel = document.getElementById('navPanel');
+    const overlay = document.getElementById('navOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    panel.classList.remove('translate-y-full');
+    panel.classList.add('translate-y-0');
+    overlay.classList.remove('hidden');
+
+    if (mainContent) {
+      mainContent.classList.add('overflow-hidden', 'pointer-events-none', 'select-none');
+    }
+
+    animateCoins(0, 1425, 2000);
+  }
+
+  function closePanel() {
+    const panel = document.getElementById('navPanel');
+    const overlay = document.getElementById('navOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    panel.classList.remove('translate-y-0');
+    panel.classList.add('translate-y-full');
+    overlay.classList.add('hidden');
+
+    if (mainContent) {
+      mainContent.classList.remove('overflow-hidden', 'pointer-events-none', 'select-none');
+    }
+  }
+
+  function animateCoins(start, end, duration) {
+    const el = document.getElementById("coinCount");
+    let startTime = null;
+
+    function update(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const value = Math.floor(progress * (end - start) + start);
+      el.textContent = value.toLocaleString();
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  // Umumiy toggle funksiyasi
+  function setupToggle(buttonClass, activeColor, inactiveColor) {
+    document.querySelectorAll(`.${buttonClass}`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.closest('.flex');
+
+        const isActive = btn.textContent === '✔';
+
+        if (isActive) {
+          btn.textContent = '✖';
+          btn.classList.remove(`bg-[${activeColor}]`, 'text-black');
+          btn.classList.add(`border-[${inactiveColor}]`, `text-[${inactiveColor}]`);
+          wrapper.classList.remove(`text-[${activeColor}]`);
+          wrapper.classList.add(`text-[${inactiveColor}]`);
+        } else {
+          btn.textContent = '✔';
+          btn.classList.remove(`border-[${inactiveColor}]`, `text-[${inactiveColor}]`);
+          btn.classList.add(`bg-[${activeColor}]`, 'text-black');
+          wrapper.classList.remove(`text-[${inactiveColor}]`);
+          wrapper.classList.add(`text-[${activeColor}]`);
+        }
+      });
+    });
+  }
+
+  // Ustiga moslab chaqirish
+  setupToggle('sfx-toggle', '#ff4c4c', '#883939');
+  setupToggle('music-toggle', '#ff4c4c', '#883939');
+});
+
+
+// About panel ocilishi
+
+let isOpen = false;
+    function toggleAbout() {
+      const panel = document.getElementById('aboutPanel');
+      isOpen = !isOpen;
+      if (isOpen) {
+        panel.classList.remove('bottom-[-300px]');
+        panel.classList.add('bottom-0');
+      } else {
+        panel.classList.remove('bottom-0');
+        panel.classList.add('bottom-[-300px]');
+      }
+    }
