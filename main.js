@@ -73,6 +73,8 @@ document.querySelectorAll('button, .btn, .open__for__hire').forEach(el => {
   document.addEventListener('DOMContentLoaded', () => {
     animateCountUp(document.getElementById('level'), 2000);
     animateCountUp(document.getElementById('coins'), 2000);
+    animateCountUp(document.getElementById('reward5'), 1000);
+    animateCountUp(document.getElementById('reward25'), 2000);
   });
 
   // Analizni animationi
@@ -115,3 +117,45 @@ document.querySelectorAll('button, .btn, .open__for__hire').forEach(el => {
     box.classList.toggle('bg-red-500');
     box.classList.toggle('bg-transparent');
   }
+
+
+  // anu soatniki krc
+let seconds = parseInt(localStorage.getItem('serverTime')) || 0;
+  const serverTimeEl = document.getElementById('serverTime');
+
+  function updateServerTime() {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    if (mins > 0) {
+      serverTimeEl.textContent = ` ${mins}m ${secs}s`;
+    } else {
+      serverTimeEl.textContent = ` ${secs}s`;
+    }
+  }
+
+  // Har sekund yangilab boramiz va localStorage ga yozamiz
+  setInterval(() => {
+    seconds++;
+    localStorage.setItem('serverTime', seconds);
+    updateServerTime();
+  }, 1000);
+
+  // Sahifa yuklanganda hoziroq ko'rsatadi
+  updateServerTime();
+  // LOCAL TIME (real vaqt)
+  const localTimeEl = document.getElementById('localTime');
+  function updateLocalTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    localTimeEl.textContent = ` ${hours}:${minutes}:${seconds}`;
+    
+  }
+  setInterval(updateLocalTime, 1000);
+  updateLocalTime();
+
+
+
+  

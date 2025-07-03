@@ -17,8 +17,69 @@
         href="https://fonts.googleapis.com/css2?family=Iceland&family=Big+Shoulders+Display:wght@400;700;900&display=swap"
         rel="stylesheet">
 </head>
+<style>
+    body {
+  overflow-x: hidden;
+  background: #000;
+  font-family: 'Iceland', monospace;
+}
 
-<body class="bg-black">
+body.no-scroll {
+  overflow: hidden;
+}
+
+.form-panel {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 470px;
+  padding: 20px;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  transform: translateX(-140%);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.form-panel.active {
+  transform: translateX(0);
+}
+
+
+
+
+
+#mainContent {
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), filter 1s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform, filter;
+}
+
+#mainContent.shifted {
+  transform: perspective(2000px) rotateY(-20deg) translateX(666px) scale(0.85);
+  filter: brightness(0.9);
+}
+
+</style>
+<div class="form-panel text-white" id="formPanel">
+  <h2 class="font-[Big_Shoulders_Display] font-extrabold text-[18px] leading-[100%] tracking-[7.5%] uppercase"
+>OPEN FOR HIRE</h2>
+<p class="font-[Iceland] font-normal text-[16px] leading-[100%] tracking-[7.5%] uppercase mt-[5px] mb-[30px]">I would love to hear about your projects!</p>
+  <form class="w-[469px] h-[552px] py-[27px] px-[32px] top-[264px] left-[156px] opacity-100 border border-[1px] border-[#FFFFFF21] bg-[#E84A4A17] backdrop-blur-[13px]">
+  <input type="text" placeholder="Your name" class="w-[405px] h-[45px] top-[325px] left-[188px] opacity-100 border border-[1px] border-[#333333] 
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] pl-[19px] bg-black outline-none">
+  <p class="mb-2">SENDING FROM</p>
+<input type="email" placeholder="Example@gmail.com" class="w-[405px] h-[45px] top-[325px] left-[188px] opacity-100 border border-[1px] border-[#333333] 
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] pl-[19px] bg-black outline-none">  <p class="mb-2">TRANSMITTED DATA</p>
+  <textarea maxlength="800" placeholder="Hi, I write to you about ..." class="w-[405px] h-[350px] top-[325px] left-[188px] opacity-100 border border-[1px] border-[#333333] 
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] p-[20px] bg-black outline-none" aria-controls="none"></textarea>
+  </form>
+  <div class="flex gap-[15px]">
+      <button class="mt-4 w-full py-2 bg-[#E84A4A] text-black font-bold hover:bg-[#000] hover:text-[#E84A4A] transition uppercase" type="submit">send message [enter]</button>
+  <button class="mt-4 w-full text-[#E84A4A] hover:text-black py-2 bg-[#000] font-bold hover:bg-[#E84A4A] transition uppercase">DISCARD [ESC]</button>
+
+  </div>
+</div>
+
+
+<body class="bg-black ">
     <div class="overlay"></div>
     <div id="welcomeMessage" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 max-w-[1200px] w-full p-4 sm:p-6 md:p-8 
@@ -56,9 +117,8 @@
         </div>
     </div>
 
-
     <!-- shotga main ketishi kere -->
-    <div id="mainContent" class="hidden">
+    <div id="mainContent" class="hidden ">
         <header>
             <div class="container max-w-[1920px] px-[70px] mx-auto">
                 <ul class="flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4 header__list">
@@ -82,118 +142,171 @@
                                 class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">local time:
                             </span>15:42</h3>
                     </li>
-
                 </ul>
             </div>
         </header>
         <main>
-            <div class="container max-w-[1920px] mx-auto px-4 lg:px-[70px] pb-[92px]">
-                <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
-                    <div class="w-full lg:w-[20%]  h-[896px] flex flex-col justify-between gap-4">
-                        <div class="flex flex-col gap-[22px] ">
-                            <div class="relative inline-block border-[1px] border-gray-500 p-4 w-[194px]">
-                                <img src="./images/opa.svg" alt="Your Image" class="block ">
-
-                                <!-- top-left corner -->
-                                <div
-                                    class="absolute top-[-3px] left-[-3px] w-3 h-3 border-t-4 border-l-4 border-red-500">
-                                </div>
-
-                                <!-- top-right corner -->
-                                <div
-                                    class="absolute top-[-3px] right-[-3px] w-3 h-3 border-t-4 border-r-4 border-red-500">
-                                </div>
-
-                                <!-- bottom-left corner -->
-                                <div
-                                    class="absolute bottom-[-3px] left-[-3px] w-3 h-3 border-b-4 border-l-4 border-red-500">
-                                </div>
-
-                                <!-- bottom-right corner -->
-                                <div
-                                    class="absolute bottom-[-3px] right-[-3px] w-3 h-3 border-b-4 border-r-4 border-red-500">
-                                </div>
-                            </div>
-                            <div class="flex flex-col  justify-center gap-1">
-                                <p class="left__white__text">NAME</p>
-                                <h2 class="left__red__title">Luz Wintheiser</h2>
-                            </div>
-                            <div class="flex flex-col  justify-center gap-1">
-                                <p class="left__white__text">occupation</p>
-                                <h2 class="left__red__title">web developer</h2>
-                            </div>
-                            <div class="flex flex-col  justify-center gap-1">
-                                <p class="left__white__text">corporation</p>
-                                <h2 class="left__red__title">Legacy.ai</h2>
-                            </div>
-                            <div class="flex flex-col  justify-center gap-1">
-                                <p class="left__white__text">availability</p>
-                                <button class="open__for__hire">open for hire</button>
-                            </div>
-                            <div class="flex flex-col  justify-center gap-1">
-                                <p class="left__white__text">social</p>
-                                <button class="open__connection flex justify-center gap-[30px] items-center">open
-                                    connection <span class="material-symbols-outlined">
-                                        bluetooth
-                                    </span>
-                                </button>
-                            </div>
+            <div class="flex flex-col lg:flex-row justify-between gap-4 mt-8">
+                <!-- Left Slidebar -->
+                <div class="w-full lg:w-[278px] h-[896px] flex flex-col justify-between gap-4 pl-[76px] max-[1400px]:pl-[30px] max-[1400px]:h-auto">
+                    <div class="flex flex-col gap-[22px]">
+                        <div class="relative inline-block border-[1px] border-gray-500 p-4 w-[194px]">
+                            <img src="./images/opa.svg" alt="Your Image" class="block">
+                            <!-- top-left corner -->
+                            <div class="absolute top-[-3px] left-[-3px] w-3 h-3 border-t-4 border-l-4 border-red-500"></div>
+                            <!-- top-right corner -->
+                            <div class="absolute top-[-3px] right-[-3px] w-3 h-3 border-t-4 border-r-4 border-red-500"></div>
+                            <!-- bottom-left corner -->
+                            <div class="absolute bottom-[-3px] left-[-3px] w-3 h-3 border-b-4 border-l-4 border-red-500"></div>
+                            <!-- bottom-right corner -->
+                            <div class="absolute bottom-[-3px] right-[-3px] w-3 h-3 border-b-4 border-r-4 border-red-500"></div>
                         </div>
-                        <div class="max-w-[194px] w-full flex flex-col  ">
-                            <span class="motto">motto:</span>
-                            <p class="motto__text">Saepe omnis neque numquam recusandae laudantium.</p>
+                        <div class="flex flex-col justify-center gap-1">
+                            <p class="left__white__text">NAME</p>
+                            <h2 class="left__red__title">Luz Wintheiser</h2>
                         </div>
-
-                    </div>
-                    <div class="w-full lg:w-[60%] general flex-col flex items-center justify-between">
-                        <div class="flex flex-col gap-2">
-                            <p class="general__text">
-                                swimming through a vast network of interconnected devices and servers, spreading joy and
-                                whimsy to users across the globe
-                            </p>
-                            <span class="general__mintitle">Artwork generated with midjourney</span>
+                        <div class="flex flex-col justify-center gap-1">
+                            <p class="left__white__text">occupation</p>
+                            <h2 class="left__red__title">web developer</h2>
                         </div>
-                        <div>
-                            <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-  <div class="flex flex-wrap justify-between gap-6">
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">BEGINNING</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">LOGS</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a href="./achievements.html" class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">achievements</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">creations</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-    <a class="w-[151px] border-l-4 border-[var(--primary)] flex flex-col gap-2">
-      <button class="open__for__hire">games</button>
-      <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
-    </a>
-  </div>
-</div>
-
+                        <div class="flex flex-col justify-center gap-1">
+                            <p class="left__white__text">corporation</p>
+                            <h2 class="left__red__title">Legacy.ai</h2>
+                        </div>
+                        <div class="flex flex-col justify-center gap-1">
+                            <p class="left__white__text">availability</p>
+                            <button class="open__for__hire" id="openFormBtn">open for hire</button>
+                        </div>
+                        <div class="flex flex-col justify-center gap-1">
+                            <p class="left__white__text">social</p>
+                            <button class="open__connection flex justify-center gap-[30px] items-center">open connection <span class="material-symbols-outlined">bluetooth</span></button>
                         </div>
                     </div>
-                    <div class="w-full lg:w-[20%] bg-gray-800 h-[896px]">
+                    <div class="max-w-[194px] w-full flex flex-col">
+                        <span class="motto">motto:</span>
+                        <p class="motto__text">Saepe omnis neque numquam recusandae laudantium.</p>
+                    </div>
+                </div>
 
+                <!-- Main Content -->
+                                <div class="w-full border relative border-l-2 border-[rgba(255,255,255,0.13)] lg:w-[100%] bg-[url('./images/ach_main_bg.png')] bg-cover bg-center z-50 general flex-col flex items-center"></div>
+
+                <!-- Right Slidebar -->
+                <div class="w-full lg:w-[278px] h-[896px] flex flex-col justify-between gap-4 pr-[76px] relative z-10 max-[1400px]:pr-[30px] max-[1400px]:h-auto">
+                    <div class="border-l-[2px] border-[#E84A4A] relative">
+                        <button class="open__for__hire text-left pl-[10px] pt-[2px] text-white">active quest</button>
+                        <div class="text-[#7A7A7A] relative pt-2 pl-[10px] pr-[41px] mt-[-3px] mb-[15px]">
+                            <p class="text-[14px] uppercase">the react skill-up line</p>
+                            <span class="bg-[#E84A4A] h-[30px] absolute left-0 top-0 opacity-[0.1] pl-[10px] pr-[55px]">the react skill-up line</span>
+                        </div>
+                        <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
+                            <p class="text-[14px] text-white">quest name</p>
+                            <p class="text-[#E84A4A] font-extrabold text-[18px]">React website</p>
+                        </div>
+                        <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
+                            <p class="text-[14px] text-white">goal</p>
+                            <p class="text-[13.5px] text-[#7A7A7A]">Build this website. Implement a full react website with multiple routers, UI elements and tricky styling. Make it all work great!</p>
+                        </div>
+                        <div class="flex flex-col gap-2 pl-[10px] uppercase">
+                            <p class="text-[14px] text-white">rewards</p>
+                            <div class="flex gap-2">
+                                <div class="flex flex-col items-center">
+                                    <img src="./images/beshplus.svg" alt="">
+                                    <span class="text-[#7A7A7A]">+5</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <img src="./images/20besh.svg" alt="">
+                                    <span class="text-[#7A7A7A]">+25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4 text-sm font-bold uppercase">
+                        <!-- Sound Effects -->
+                        <div id="sfx-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#ff4c4c]">
+                            <span>Sound Effects</span>
+                            <button id="toggle-sfx" onclick="toggleSetting('sfx')" class="w-6 h-6 flex items-center justify-center border border-[#ff4c4c]">
+                                ✔
+                            </button>
+                        </div>
+                        <!-- Music -->
+                        <div id="music-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#883939]">
+                            <span>Music</span>
+                            <button id="toggle-music" onclick="toggleSetting('music')" class="w-6 h-6 flex items-center justify-center border border-[#883939]">
+                                ✖
+                            </button>
+                        </div>
+                        <!-- Visual Settings -->
+                        <div class="flex items-center text-[18px] font-extrabold uppercase justify-between text-[#ff4c4c] border border-[#262626] pt-[4px] px-[7px] pb-[4px]">
+                            <span>Visual Settings</span>
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <img src="./images/settings.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
-
+        <footer class="pb-[92px] max-[1400px]:pb-[185px]">
+            <div>
+                <div class="container w-[813px] mx-auto relative max-[1140px]:w-[483px]">
+                    <div class="flex justify-between gap-[15px] absolute left-0 top-[-23px] z-[60] max-[1400px]:flex-wrap max-[1400px]:justify-center">
+                        <a href="./index.html" class="w-[151px] border-l-2 border-[#333333] border-[var(--primary)] flex flex-col gap-2">
+                            <button class="open__for__hire w-full ">BEGINNING</button>
+                            <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                        </a>
+                        <a href="./datalogs.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                            <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]">LOGS</button>
+                            <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                        </a>
+                        <a href="./achievements.html" class="w-[151px] border-l-2 border-[#333333]  flex flex-col gap-2">
+                            <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]" >achievements</button>
+                            <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                        </a>
+                        <a href="./creations.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                            <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]">creations</button>
+                            <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                        </a>
+                        <a href="./games.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                            <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]">games</button>
+                            <p class="nav__a">Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-
-
 
     <script src="./type.js"></script>
     <script src="./main.js"></script>
+    <script>
+  const openFormBtn = document.getElementById('openFormBtn');
+  const formPanel = document.getElementById('formPanel');
+  const mainContent = document.getElementById('mainContent');
+
+  // 🔊 Sound effects
+  const openSound = new Audio('./sounds/slide.wav');
+  const closeSound = new Audio('./sounds/slide.wav');
+
+  openFormBtn.addEventListener('click', () => {
+    formPanel.classList.add('active');
+    mainContent.classList.add('shifted');
+    document.body.classList.add('no-scroll');
+    openSound.play(); // 🔥 PLAY OPEN SOUND
+  });
+
+  // FORM tashqarisiga bosilganda qaytarish
+  window.addEventListener('click', (e) => {
+    if (!formPanel.contains(e.target) && e.target !== openFormBtn && formPanel.classList.contains('active')) {
+      formPanel.classList.remove('active');
+      mainContent.classList.remove('shifted');
+      document.body.classList.remove('no-scroll');
+      closeSound.play(); // 🔥 PLAY CLOSE SOUND
+    }
+  });
+</script>
+
+    </script>
 </body>
 
 </html>
