@@ -35,6 +35,21 @@ window.addEventListener('DOMContentLoaded', () => {
     type();
   }
 
+  document.querySelectorAll('[type-animation]').forEach(el => {
+  const txt = el.textContent.trim();
+  el.textContent = "";
+  [...txt].forEach((char, i) => {
+    setTimeout(() => el.textContent += char, 100 * i);
+  });
+});
+
+ document.querySelectorAll('[speed-type-animation]').forEach(el => {
+  const txt = el.textContent.trim();
+  el.textContent = "";
+  [...txt].forEach((char, i) => {
+    setTimeout(() => el.textContent += char, 30 * i);
+  });
+});
   function closeWelcome() {
     document.getElementById('welcomeMessage').classList.add('hidden');
     document.getElementById('mainContent').classList.remove('hidden');

@@ -21,7 +21,68 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet"> -->
 </head>
+<style>
+      body {
+  overflow-x: hidden;
+  background: #000;
+  font-family: 'Iceland', monospace;
+}
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+.form-panel {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 470px;
+  padding: 20px;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  transform: translateX(-140%);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.form-panel.active {
+  transform: translateX(0);
+}
+
+
+
+
+
+#mainContent {
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), filter 1s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform, filter;
+}
+
+#mainContent.shifted {
+  transform: perspective(2000px) rotateY(-20deg) translateX(666px) scale(0.85);
+  filter: brightness(0.9);
+}
+</style>
+<div class="form-panel text-white" id="formPanel">
+  <h2 class="font-[Big_Shoulders_Display] font-extrabold text-[18px] leading-[100%] tracking-[7.5%] uppercase"
+>OPEN FOR HIRE</h2>
+<p class="font-[Iceland] font-normal text-[16px] leading-[100%] tracking-[7.5%] uppercase mt-[5px] mb-[30px]">I would love to hear about your projects!</p>
+  <form class="w-[469px] h-[552px] py-[27px] px-[32px] top-[264px] left-[156px] opacity-100 border border-[1px] border-[#FFFFFF21] bg-[#E84A4A17] backdrop-blur-[13px]">
+    <h2 class="font-[Big_Shoulders_Display] font-[743] text-[18px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)]"
+>How should I call you?</h2>
+  <input type="text" placeholder="Your name" class="w-[405px] h-[45px] top-[325px] left-[188px] opacity-100 border border-[1px] border-[#333333] mt-[12px] mb-[32px]
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] pl-[19px] bg-black outline-none">
+  <p class="font-[Big_Shoulders_Display] font-[743] text-[18px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)]"
+>SENDING FROM</p>
+<input type="email" placeholder="Example@gmail.com" class="w-[405px] h-[45px] top-[325px] left-[188px] opacity-100 border border-[1px] border-[#333333]  mt-[12px] mb-[32px]    
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] pl-[19px] bg-black outline-none">  <p class="mb-2">TRANSMITTED DATA</p>
+  <textarea minlength="10"  maxlength="400" placeholder="Hi, I write to you about ..." class="w-[405px] h-[250px] top-[325px] left-[188px] opacity-100 border border-[1px] t-[12px] mb-[32px] border-[#333333] 
+font-[Iceberg] font-normal text-[14px] leading-[100%] tracking-[7.5%] uppercase text-[var(--primary)] placeholder-[color:#7A7A7A] p-[20px] bg-black outline-none mt-[12px] mb-[32px]" aria-controls="none"></textarea>
+<div class="flex gap-[15px] items-center justify-center">
+    <button class="mt-4 w-full py-2 px-5 bg-[#E84A4A] text-black font-bold hover:bg-[#000] hover:text-[#E84A4A] transition uppercase" type="submit">send message [enter]</button>
+<button class="mt-4 w-full px-5 text-[#E84A4A] hover:text-black py-2 bg-[#000] font-bold hover:bg-[#E84A4A] transition uppercase">DISCARD [ESC]</button>
+
+</div>
+  </form>
+</div>
 <body class="bg-black uppercase">
 
     <img src="./images/ach_after.png" alt="" class="absolute right-0 top-0">
@@ -35,23 +96,28 @@
                           <!-- LEVEL -->
                         <div class="hero__level">
                             <h2 id="level" data-target="48">0</h2>
-                            <span>LEVEL</span>
+                            <span type-animation>LEVEL</span>
                         </div>
                         <button class="header__plus">+</button>
                         <div class="hero__level">
                             <h2 id="coins" data-target="1425">0</h2>
-                            <span>COINS AWARDED</span>
+                            <span type-animation>COINS AWARDED</span>
                         </div>
                     </li>
-                    <li class="header__two">
-                        <h3 class="hover:text-[#7DFF68]">CREDITS</h3>
-                        <h3 class="hover:text-[#7DFF68] group"><span
-                                class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">server time:
-                            </span> 8:42</h3>
-                        <h3 class="hover:text-[#7DFF68] group"><span
-                                class="text-[#7A7A7A] group-hover:text-[#fff] transition-all duration-300">local time:
-                            </span>15:42</h3>
-                    </li>
+                   <li class="header__two">
+  <h3 class="hover:text-[#7DFF68]" type-animation>CREDITS</h3>
+  
+  <h3 class="text-gray-400 hover:text-white nice">
+    server time: 
+    <span id="serverTime" class="hover:text-[#7DFF68]"></span>
+  </h3>
+  
+  <h3 class="text-gray-400 hover:text-white nice">
+    local time: 
+    <span id="localTime" class="hover:text-[#7DFF68]"></span>
+  </h3>
+</li>
+    
 
                 </ul>
         </header>
@@ -86,40 +152,40 @@
                             </div>
                         </div>
                         <div class="flex flex-col  justify-center gap-1">
-                            <p class="left__white__text">NAME</p>
-                            <h2 class="left__red__title">Luz Wintheiser</h2>
+                            <p class="left__white__text" type-animation>NAME</p>
+                            <h2 class="left__red__title" type-animation> Luz Wintheiser</h2>
                         </div>
                         <div class="flex flex-col  justify-center gap-1">
-                            <p class="left__white__text">occupation</p>
-                            <h2 class="left__red__title">web developer</h2>
+                            <p class="left__white__text" type-animation>occupation</p>
+                            <h2 class="left__red__title" type-animation>web developer</h2>
                         </div>
                         <div class="flex flex-col  justify-center gap-1">
-                            <p class="left__white__text">corporation</p>
-                            <h2 class="left__red__title">Legacy.ai</h2>
+                            <p class="left__white__text" type-animation>corporation</p>
+                            <h2 class="left__red__title" type-animation>Legacy.ai</h2>
                         </div>
                         <div class="flex flex-col  justify-center gap-1">
-                            <p class="left__white__text">availability</p>
-                            <button class="open__for__hire">open for hire</button>
+                            <p class="left__white__text" type-animation>availability</p>
+                            <button class="open__for__hire" id="openFormBtn" type-animation>open for hire</button>
                         </div>
                         <div class="flex flex-col  justify-center gap-1">
-                            <p class="left__white__text">social</p>
-                            <button class="open__connection flex justify-center gap-[30px] items-center">open
-                                connection <span class="material-symbols-outlined">
+                            <p class="left__white__text" type-animation>social</p>
+                            <button class="open__connection flex justify-center gap-[30px] items-center" ><span type-animation>open
+                                connection</span> <span class="material-symbols-outlined">
                                     bluetooth
                                 </span>
                             </button>
                         </div>
                     </div>
                     <div class="max-w-[194px] w-full flex flex-col  ">
-                        <span class="motto">motto:</span>
-                        <p class="motto__text">Saepe omnis neque numquam recusandae laudantium.</p>
+                        <span class="motto" type-animation>motto:</span>
+                        <p class="motto__text" speed-type-animation>Saepe omnis neque numquam recusandae laudantium.</p>
                     </div>
 
                 </div>
 
                 <!-- Main Content -->
                 <div class="w-full border relative border-l-2 border-[rgba(255,255,255,0.13)] lg:w-[100%] bg-[url('./images/ach_main_bg.png')] bg-cover bg-center z-50 general flex-col flex items-center">
-                    <p class="text-[18px] uppercase text-white text-center pt-[40px] mb-[43px]">achievements</p>
+                    <p class="text-[18px] uppercase text-white text-center pt-[40px] mb-[43px]" type-animation>achievements</p>
 
                     <div class="flex gap-[17px] mb-[80px] max-[1400px]:flex-col max-[1400px]:items-center max-[640px]:px-5">
 
@@ -133,19 +199,24 @@
                                     <span id="progressText" class="absolute text-[#E84A4A] text-[22px] font-bold  font-bold">0/22</span>
                                 </div>
 
-                                <p class="uppercase text-[#7A7A7A] text-[16px]">PROGRESS</p>
+                                <p class="uppercase text-[#7A7A7A] text-[16px]" type-animation>PROGRESS</p>
                             </div>
                             
                             
                             
-                            <p class="text-[16px] mb-[15px] text-[#7A7A7A]">I have created a set of achievements for myself and I use this page to track them. <br><br>
+                            <p class="text-[16px] mb-[15px] text-[#7A7A7A]" speed-type-animation>I have created a set of achievements for myself and I use this page to track them. <br><br>
 
 If you want to give me a challenge and rate it, please feel free to submit it with the button below!</p>
-                            <button id="challengeBtn" class="open__connection flex justify-center gap-[30px] items-center max-[1400px]:mx-auto max-[1400px]:mb-[35px]">CHALLENGE ME</button>
+                            <button type-animation id="challengeBtn" class="open__connection flex justify-center gap-[30px] items-center max-[1400px]:mx-auto max-[1400px]:mb-[35px]">CHALLENGE ME</button>
                         </div>
+
+
+                        <div  class="flex gap-[17px]">
+                            <div class="flex flex-col gap-[57px] relative">
 
                         <div class="flex gap-[17px] max-[640px]:flex-col-reverse">
                             <div class="flex flex-col gap-[57px] relative overflow-hidden">
+
 
                                 <div class="flex flex-col gap-[22px] ">
                                     
@@ -156,8 +227,13 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
 
                                         <div class="">
+
+                                            <h3 class="text-[18px] font-extrabold text-[#E8BB4A] mb-1 pl-[21px]" type-animation> 1000 stars on my project</h3>
+                                            <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px]" >I have contributed to Gutenberg, moment.js and <br>react repositories in github.</p>
+
                                             <h3 class="text-[18px] font-extrabold text-[#E8BB4A] mb-1 pl-[21px] max-[500px]:text-[16px] max-[400px]:pl-0"> 1000 stars on my project</h3>
                                             <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px] max-[500px]:text-[11px] max-[400px]:pl-0 max-[400px]:pr-0 max-[400px]:!px-5">I have contributed to Gutenberg, moment.js and <br>react repositories in github.</p>
+
                                             <div class="relative">
                                                 <p class="bg-[#E8BB4A] opacity-10 py-1 text-[12px] text-white w-[104%] pl-[21px] uppercase max-[400px]:w-[200%]  max-[400px]:ml-[-5px]">1</p>
                                                 <span class="!opacity-100 absolute left-[21px] text-white top-0">Achieved: 14 / 02 / 2022</span>
@@ -172,8 +248,13 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
 
                                         <div class="">
+
+                                            <h3 class="text-[18px] font-extrabold text-[#E84A4A] mb-1 pl-[21px]" type-animation> released personal website</h3>
+                                            <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px]">the site you are looking at right now -- yes, I did it <br>! And it took me a few months.</p>
+
                                             <h3 class="text-[18px] font-extrabold text-[#E84A4A] mb-1 pl-[21px] max-[500px]:text-[16px] max-[400px]:pl-0"> released personal website</h3>
                                             <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px] max-[500px]:text-[11px] max-[400px]:pl-0 max-[400px]:pr-0 max-[400px]:!px-5">the site you are looking at right now -- yes, I did it <br>! And it took me a few months.</p>
+ 
                                             <div class="relative">
                                                 <p class="bg-[#E84A4A] opacity-10 py-1 text-[12px] text-white pl-[21px] uppercase max-[400px]:w-[200%]  max-[400px]:ml-[-5px]">1</p>
                                                 <span class="!opacity-100 absolute left-[21px] text-white top-0">Achieved: 14 / 02 / 2022</span>
@@ -188,8 +269,13 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
 
                                         <div class="">
+ 
+                                            <h3 class="text-[18px] font-extrabold text-[#E84A4A] mb-1 pl-[21px]" type-animation>developed my Open source plugin</h3>
+                                            <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px]">I have created a JS library for managing <br>absolute positioned elements</p>
+
                                             <h3 class="text-[18px] font-extrabold text-[#E84A4A] mb-1 pl-[21px] max-[500px]:text-[16px] max-[400px]:pl-0">developed my Open source plugin</h3>
                                             <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px] max-[500px]:text-[11px] max-[400px]:pl-0 max-[400px]:pr-0 max-[400px]:!px-5">I have created a JS library for managing <br>absolute positioned elements</p>
+ 
                                             <div class="relative">
                                                 <p class="bg-[#E84A4A] opacity-10 py-1 text-[12px] text-white w-[117%] pl-[21px] uppercase max-[400px]:w-[200%]  max-[400px]:ml-[-20px]">1</p>
                                                 <span class="!opacity-100 absolute left-[21px] text-white top-0">Achieved: 14 / 02 / 2022</span>
@@ -197,12 +283,12 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
                                     </div>
 
-                                    <span class="text-[12px] text-white absolute left-0 top-[-31px]">achieved</span>
+                                    <span class="text-[12px] text-white absolute left-0 top-[-31px]" type-animation>achieved</span>
                                 </div>
 
                                 <div class="">
                                     
-                                    <span class="text-[12px] text-white mb-[15px]">achieved</span>
+                                    <span class="text-[12px] text-white mb-[15px]" type-animation>achieved</span>
 
                                     <div class="flex items-end pt-2 border border mb-[22px] opacity-50 border-[rgba(255,255,255,0.13)] bg-[linear-gradient(270deg,rgba(74,175,232,0.13)_2.772%,rgba(74,175,232,0)_50%)] max-[400px]:flex-col max-[400px]:items-center max-[400px]:gap-[10px] max-[400px]:text-center">
                                         <div class="border-r border-r-[#1D1D20] flex flex-col items-center max-[400px]:border-r-0">
@@ -211,8 +297,13 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
 
                                         <div class="">
+ 
+                                            <h3 class="text-[18px] font-extrabold text-[#429DD1] mb-1 pl-[21px] font-big-shoulders-display" type-animation>gain 50 stars on a my repository</h3>
+                                            <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px]" >My most popular extension is gaining traction, I <br>am aiming for at least 50 stars</p>
+
                                             <h3 class="text-[18px] font-extrabold text-[#429DD1] mb-1 pl-[21px] font-big-shoulders-display max-[500px]:text-[16px] max-[400px]:pl-0">gain 50 stars on a my repository</h3>
                                             <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px] max-[500px]:text-[11px] max-[400px]:pl-0 max-[400px]:pr-0 max-[400px]:!px-5">My most popular extension is gaining traction, I <br>am aiming for at least 50 stars</p>
+ 
                                             <div class="relative">
                                                 <p class="bg-[#4AAFE8] opacity-10 py-1 text-[12px] text-white pl-[21px] uppercase w-[103.5%] max-[400px]:w-[200%]  max-[400px]:ml-[-5px]">p</p>
                                                 <span class="!opacity-100 absolute left-[21px] text-white top-0 max-[400px]:text-center">ongoing</span>
@@ -227,8 +318,13 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                                         </div>
 
                                         <div class="">
+ 
+                                            <h3 class="text-[18px] font-extrabold text-[#53CC60] mb-1 pl-[21px]" type-animation>achieve 100 WPM writing speed</h3>
+                                            <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px]">My most popular extension is gaining traction, I <br>am aiming for at least 50 stars</p>
+
                                             <h3 class="text-[18px] font-extrabold text-[#53CC60] mb-1 pl-[21px] max-[500px]:text-[16px] max-[400px]:pl-0">achieve 100 WPM writing speed</h3>
                                             <p class="pr-[15px] text-[14px] text-[#7A7A7A] mb-[14px] uppercase pl-[21px] max-[500px]:text-[11px] max-[400px]:pl-0 max-[400px]:pr-0 max-[400px]:!px-5">My most popular extension is gaining traction, I <br>am aiming for at least 50 stars</p>
+
                                             <div class="relative">
                                                 <p class="bg-[#56CD61] opacity-10 py-1 text-[12px] text-white w-[103.5%] pl-[21px] uppercase max-[400px]:w-[200%]  max-[400px]:ml-[-5px]">p</p>
                                                 <span class="!opacity-100 absolute left-[21px] text-white top-0 max-[400px]:text-center">ongoing</span>
@@ -243,15 +339,15 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                             <div class="space-y-2 text-red-500 font-bold max-[640px]:mb-5">
                                 <button class="flex items-center gap-2 cursor-pointer" onclick="toggleStatus(this)">
                                     <div class="w-4 h-4 border-2 border-red-500 bg-red-500 status-box"></div>
-                                    <span>ACHIEVED</span>
+                                    <span type-animation>ACHIEVED</span>
                                 </button>
                                 <button class="flex items-center gap-2 cursor-pointer" onclick="toggleStatus(this)">
                                     <div class="w-4 h-4 border-2 border-red-500 bg-red-500 status-box"></div>
-                                    <span>IN PROGRESS</span>
+                                    <span type-animation>IN PROGRESS</span>
                                 </button>
                                 <button class="flex items-center gap-2 cursor-pointer" onclick="toggleStatus(this)">
                                     <div class="w-4 h-4 border-2 border-red-500 bg-transparent status-box"></div>
-                                    <span>TODO</span>
+                                    <span type-animation>TODO</span>
                                 </button>
                             </div>
                         </div>
@@ -269,35 +365,36 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                 <div class="w-full lg:w-[278px]  h-[896px]  flex flex-col justify-between gap-4 pr-[76px] relative z-10 max-[1400px]:pr-[30px] max-[1400px]:h-auto max-[1090px]:hidden">
                     
                     <div class="border-l-[2px] border-[#E84A4A]  relative">
-                        <button class="open__for__hire text-left pl-[10px] pt-[2px] text-white">active quest</button>
+                        <button class="open__for__hire text-left pl-[10px] pt-[2px] text-white" type-animation>active quest</button>
                         
                         <div class="text-[#7A7A7A] relative pt-2 pl-[10px] pr-[41px] mt-[-3px] mb-[15px]">
-                            <p class="text-[14px] uppercase">the react skill-up line</p>
+                            <p class="text-[14px] uppercase" type-animation>the react skill-up line</p>
                             <span class="bg-[#E84A4A] h-[30px] absolute left-0 top-0 opacity-[0.1]  pl-[10px] pr-[55px] ">the react skill-up line</span>
                         </div>
 
                         <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
-                            <p class="text-[14px] text-white">quest name</p>
-                            <p class="text-[#E84A4A] font-extrabold text-[18px]">React website</p>
+                            <p class="text-[14px] text-white" type-animation>quest name</p>
+                            <p class="text-[#E84A4A] font-extrabold text-[18px]" type-animation>React website</p>
                         </div>
 
                         <div class="flex flex-col pl-[10px] uppercase mb-[23px]">
-                            <p class="text-[14px] text-white">goal</p>
-                            <p class="text-[13.5px] text-[#7A7A7A]">Build this website. Implement a full react website with multiple routers, UI elements and tricky styling. Make it all work great!</p>
+                            <p class="text-[14px] text-white" type-animation>goal</p>
+                            <p class="text-[13.5px] text-[#7A7A7A]" speed-type-animation>Build this website. Implement a full react website with multiple routers, UI elements and tricky styling. Make it all work great!</p>
                         </div>
 
                         <div class="flex flex-col gap-2 pl-[10px] uppercase">
-                            <p class="text-[14px] text-white">rewards</p>
+                            <p class="text-[14px] text-white" type-animation>rewards</p>
 
                             <div class="flex gap-2">
                                 <div class="flex flex-col items-center">
                                     <img src="./images/beshplus.svg" alt="">
-                                    <span class="text-[#7A7A7A]">+5</span>
+                                    <span  class="text-[#7A7A7A]" >+ <span data-target="5" id="reward5">0</span></span>
                                 </div>
 
                                 <div class="flex flex-col items-center">
                                     <img src="./images/20besh.svg" alt="">
-                                    <span class="text-[#7A7A7A]">+25</span>
+                                                                        <span  class="text-[#7A7A7A]" >+ <span data-target="25" id="reward25">0</span></span>
+
                                 </div>
                             </div>
 
@@ -310,7 +407,7 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
 
                         <!-- Sound Effects -->
                         <div id="sfx-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#ff4c4c]">
-                            <span>Sound Effects</span>
+                            <span type-animation>Sound Effects</span>
                             <button id="toggle-sfx" onclick="toggleSetting('sfx')" class="w-6 h-6 flex items-center justify-center border border-[#ff4c4c]">
                             ✔
                             </button>
@@ -318,7 +415,7 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
 
                         <!-- Music -->
                         <div id="music-wrapper" class="flex text-[18px] font-extrabold uppercase items-center justify-between text-[#883939]">
-                            <span>Music</span>
+                            <span type-animation>Music</span>
                             <button id="toggle-music" onclick="toggleSetting('music')" class="w-6 h-6 flex items-center justify-center border border-[#883939]">
                             ✖
                             </button>
@@ -326,7 +423,7 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
 
                         <!-- Visual Settings -->
                         <div class="flex items-center text-[18px] font-extrabold uppercase justify-between text-[#ff4c4c] border border-[#262626] pt-[4px] px-[7px] pb-[4px]">
-                            <span>Visual Settings</span>
+                            <span type-animation>Visual Settings</span>
                             <div class="w-5 h-5 flex items-center justify-center">
                             <img src="./images/settings.png" alt="">
                             </div>
@@ -344,6 +441,36 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
                 <div class="container w-[813px] mx-auto relative max-[1140px]:w-[483px] max-[1090px]:hidden">
                     <div class="flex  justify-between gap-[15px] absolute left-0 top-[-23px] z-[600] max-[1400px]:flex-wrap max-[1400px]:justify-center">
 
+
+
+                                <a href="./index.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                                <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')] " type-animation>BEGINNING</button>
+                                <p class="nav__a" speed-type-animation>Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                </a>
+
+
+                                <a href="./datalogs.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                                <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]" type-animation>LOGS</button>
+                                <p class="nav__a" speed-type-animation>Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                </a>
+
+
+                                <a href="./achievements.html" class="w-[151px] border-l-2 border-[var(--primary)] flex flex-col gap-2">
+                                <button class="open__for__hire w-full " type-animation>achievements</button>
+                                <p class="nav__a" speed-type-animation>Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                </a>
+
+
+                                <a href="./creations.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                                <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]" type-animation>creations</button>
+                                <p class="nav__a" speed-type-animation>Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                </a>
+
+
+                                <a href="./games.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
+                                <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]" type-animation>games</button>
+                                <p class="nav__a" speed-type-animation>Suscipit est consequatur nemo voluptatem est labore saepe.</p>
+                                </a>
 
                         <a href="./index.html" class="w-[151px] border-l-2 border-[#333333] flex flex-col gap-2">
                         <button class="open__for__hire w-full bg-[url('./images/footer_item_bg.png')]">BEGINNING</button>
@@ -474,7 +601,32 @@ If you want to give me a challenge and rate it, please feel free to submit it wi
             </div>
         </footer>
     </div>
+<script>
+  const openFormBtn = document.getElementById('openFormBtn');
+  const formPanel = document.getElementById('formPanel');
+  const mainContent = document.getElementById('mainContent');
 
+  // 🔊 Sound effects
+  const openSound = new Audio('./sounds/slide.wav');
+  const closeSound = new Audio('./sounds/slide.wav');
+
+  openFormBtn.addEventListener('click', () => {
+    formPanel.classList.add('active');
+    mainContent.classList.add('shifted');
+    document.body.classList.add('no-scroll');
+    openSound.play(); // 🔥 PLAY OPEN SOUND
+  });
+
+  // FORM tashqarisiga bosilganda qaytarish
+  window.addEventListener('click', (e) => {
+    if (!formPanel.contains(e.target) && e.target !== openFormBtn && formPanel.classList.contains('active')) {
+      formPanel.classList.remove('active');
+      mainContent.classList.remove('shifted');
+      document.body.classList.remove('no-scroll');
+      closeSound.play(); // 🔥 PLAY CLOSE SOUND
+    }
+  });
+</script>
 
     <!-- Slide-up Navigation panel wrapper -->
     <div id="navWrapper" class="relative">
